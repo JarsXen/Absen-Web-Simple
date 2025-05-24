@@ -510,10 +510,6 @@
                             <label for="memberName">Nama Lengkap:</label>
                             <input type="text" id="memberName" required>
                         </div>
-                        <div class="form-group">
-                            <label for="memberPhone">No. HP:</label>
-                            <input type="tel" id="memberPhone">
-                        </div>
                     </div>
                     <div style="display: flex; gap: 10px;">
                         <button type="submit" class="btn">💾 Simpan</button>
@@ -528,7 +524,6 @@
                         <tr>
                             <th>No</th>
                             <th>Nama</th>
-                            <th>No. HP</th>
                             <th>Tgl Bergabung</th>
                             <th>Total Kehadiran</th>
                         </tr>
@@ -653,9 +648,6 @@
         // Create sample data
         async function createSampleData() {
             const sampleMembers = [
-                { name: 'Ahmad Fauzi', email: 'ahmad@email.com', phone: '08123456789', joinDate: '2024-01-15', attendance: 0 },
-                { name: 'Siti Nurhaliza', email: 'siti@email.com', phone: '08234567890', joinDate: '2024-01-20', attendance: 0 },
-                { name: 'Budi Santoso', email: 'budi@email.com', phone: '08345678901', joinDate: '2024-02-01', attendance: 0 }
             ];
 
             for (const member of sampleMembers) {
