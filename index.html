@@ -580,9 +580,10 @@
             </div>
         </div>
     </div>
-        <footer style="text-align: center; padding: 20px; color: #888; font-size: 14px;">
+    <footer style="text-align: center; padding: 20px; color: #888; font-size: 14px;">
     © 2025 Midnight Racing Community. All rights reserved.
 </footer>
+
 
     <!-- Firebase SDK -->
     <script type="module">
@@ -614,7 +615,7 @@
         // Admin credentials (in production, use proper authentication)
         const adminCredentials = {
             username: 'admin',
-            password: 'admin123'
+            password: 'mrc#12'
         };
 
         // Initialize app
@@ -635,31 +636,12 @@
                 
                 updateMemberSelects();
                 
-                // If no members exist, create sample data
-                if (members.length === 0) {
-                    await createSampleData();
-                }
             } catch (error) {
                 console.error('Error loading members:', error);
                 showMessage('loginMessage', 'Gagal memuat data member. Pastikan konfigurasi Firebase sudah benar.', 'error');
             }
         }
 
-        // Create sample data
-        async function createSampleData() {
-            const sampleMembers = [
-            ];
-
-            for (const member of sampleMembers) {
-                try {
-                    await addDoc(collection(db, 'members'), member);
-                } catch (error) {
-                    console.error('Error creating sample member:', error);
-                }
-            }
-            
-            loadMembers();
-        }
 
         // Load absensi data from Firebase
         async function loadAbsensiData() {
@@ -894,8 +876,6 @@
             
             const newMember = {
                 name: document.getElementById('memberName').value,
-                email: document.getElementById('memberEmail').value,
-                phone: document.getElementById('memberPhone').value,
                 joinDate: new Date().toISOString().split('T')[0],
                 attendance: 0
             };
@@ -976,8 +956,6 @@
                 <tr>
                     <td>${index + 1}</td>
                     <td>${member.name}</td>
-                    <td>${member.email || '-'}</td>
-                    <td>${member.phone || '-'}</td>
                     <td>${new Date(member.joinDate).toLocaleDateString('id-ID')}</td>
                     <td>${member.attendance || 0}</td>
                 </tr>
